@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require 'conn.php';
@@ -8,7 +9,7 @@ $email=($_POST['email']);
 	
 // update data in mysql database
 $sql="UPDATE users SET password='$password' WHERE email='$email'";
-$result=mysql_query($sql);
+$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 // if successfully updated.
 if($result){

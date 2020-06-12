@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if(!isset( $_SESSION['myusername'] )){
@@ -64,8 +65,8 @@ include 'header.php';
 		<h2>Taplist Header</h2><br><br>
 		<?php
 			$sql="SELECT configValue FROM config WHERE configName ='".ConfigNames::HeaderText."'";
-			$result=mysql_query($sql);
-			$headerText=mysql_fetch_array($result);
+			$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$headerText=mysqli_fetch_array($result);
 		?>
 		<p><b>Text to Display:</b></p>
 			<form method="post" action="update_header_text.php">
@@ -74,8 +75,8 @@ include 'header.php';
 			</form><br><br>
 		<?php
 			$sql="SELECT configValue FROM config WHERE configName ='".ConfigNames::HeaderTextTruncLen."'";
-			$result=mysql_query($sql);
-			$headerTextTruncLen=mysql_fetch_array($result);
+			$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$headerTextTruncLen=mysqli_fetch_array($result);
 		?>
 		<p><b>Truncate To:</b> (# characters)</p>
 			<form method="post" action="update_header_text_trunclen.php">

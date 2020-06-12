@@ -1,3 +1,4 @@
+
 <head></head>
 <html>
 <head>
@@ -96,7 +97,7 @@ if ($action == 'remove')
 
 	if (mysqli_connect_errno())
 	{
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	echo "Failed to connect to mysql: " . mysqli_connect_error();
 	}
 
 	$sql = "DROP database raspberrypints;";
@@ -153,7 +154,7 @@ require_once __DIR__.'/config_files.php';
 
 	if (mysqli_connect_errno())
 	{
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	echo "Failed to connect to mysql: " . mysqli_connect_error();
 	}
 
 	$sql = "GRANT ALL ON *.* TO '" . $dbuser . "'@'" . $servername . "' IDENTIFIED BY '" . $dbpass1 . "' WITH GRANT OPTION;";
@@ -175,7 +176,7 @@ require_once __DIR__.'/config_files.php';
 	$sql_query = split_sql_file($sql_query, ';');
 
 
-	mysql_connect($servername,'root',$rootpass) or die('error connection');
+	($GLOBALS["___mysqli_ston"] = mysqli_connect($servername, 'root', $rootpass)) or die('error connection');
 
 	$i=1;
 	foreach($sql_query as $sql){
@@ -183,7 +184,7 @@ require_once __DIR__.'/config_files.php';
 	//echo "	";
 	//echo $sql;
 	//echo "<br>";
-	mysql_query($sql) or die('error in query');
+	mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die('error in query');
 	}
 
 	echo "Success!<br>";
@@ -197,7 +198,7 @@ require_once __DIR__.'/config_files.php';
 
 	if (mysqli_connect_errno())
 	{
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	echo "Failed to connect to mysql: " . mysqli_connect_error();
 	}
 	$currentdate = Date('Y-m-d H:i:s');
 	$sql = "INSERT INTO users (username, password, name, email, createdDate, modifiedDate) VALUES ('" . $adminuser . "','" . $adminhash . "','" . $adminname . "','" . $adminemail . "','" . $currentdate . "','" . $currentdate . "');";
@@ -236,13 +237,13 @@ require_once __DIR__.'/config_files.php';
 			$sql_query = split_sql_file($sql_query, ';');
 
 
-			mysql_connect($servername,'root',$rootpass) or die('error connection');
+			($GLOBALS["___mysqli_ston"] = mysqli_connect($servername, 'root', $rootpass)) or die('error connection');
 
 			$i=1;
 			foreach($sql_query as $sql){
 			//echo $i++;
 			//echo "	";
-			mysql_query($sql) or die('error in query');
+			mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die('error in query');
 			}
 
 			

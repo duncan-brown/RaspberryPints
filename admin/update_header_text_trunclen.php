@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if(!isset( $_SESSION['myusername'] )){
@@ -15,7 +16,7 @@ $header_text_trunclen=$_POST['header_text_trunclen'];
 
 // update data in mysql database
 $sql="UPDATE config SET configValue='$header_text_trunclen' WHERE configName ='headerTextTruncLen'";
-$result=mysql_query($sql);
+$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 // if successfully updated.
 if($result){

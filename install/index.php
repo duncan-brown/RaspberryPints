@@ -1,3 +1,4 @@
+
 <html>
 	<script>
 		//http://jsfiddle.net/rpP4K/
@@ -56,8 +57,8 @@
 			require '../includes/config.php';
 			db();
 			$sql = 'SELECT id,configName,configValue FROM config where configname = "version"';
-			$qry = mysql_query($sql);	
-			$dbversion = mysql_result($qry,0,2);
+			$qry = mysqli_query($GLOBALS["___mysqli_ston"], $sql);	
+			$dbversion = mysqli_result($qry, 0, 2);
 		
 			echo '<br><select name="selectaction">';
 			if ($dbversion != $rpintsversion) {
@@ -72,7 +73,7 @@
 	}
 	?> 
 	<h3>Step<span class="tapcircle">1</span></h3>
-In order to get started, we'll need a little information from you. When you installed mySQL, you were asked for a "root" password.
+In order to get started, we'll need a little information from you. When you installed mysql, you were asked for a "root" password.
 You'll need to enter that here for us to configure RPints for you. You should leave the Database Server name as the default, unless
 you are certain you need to change it.
 	<table>

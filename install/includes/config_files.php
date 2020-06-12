@@ -1,3 +1,4 @@
+
 <?php
 /***************************************************************************
 * Config files for V1.0.3.395
@@ -16,8 +17,8 @@
 	//Admin config file - /admin/conn.php
 	$adminconfig1 = "<?php \n";
 	$adminconfig1 .= '   $host="' . "{$servername}" . '"; // Host name' . "\n";
-	$adminconfig1 .= '   $username="' . "{$dbuser}" . '"; // Mysql username' . "\n";
-	$adminconfig1 .= '   $password="' . "${dbpass1}" . '"; // Mysql password' . "\n";
+	$adminconfig1 .= '   $username="' . "{$dbuser}" . '"; // mysql username' . "\n";
+	$adminconfig1 .= '   $password="' . "${dbpass1}" . '"; // mysql password' . "\n";
 	$adminconfig1 .= '   $db_name="raspberrypints"; // Database name' . "\n";
 	$adminconfig1 .= '   $tbl_name="users";' . "\n";
 	$adminconfig1 .= '   //Connect to server and select databse.' . "\n";

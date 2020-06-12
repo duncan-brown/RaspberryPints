@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $session=session_id();
@@ -10,19 +11,19 @@ require 'conn.php';
 $myusername=$_POST['myusername'];
 $mypassword=md5($_POST['mypassword']);
 
-// To protect MySQL injection (more detail about MySQL injection)
+// To protect mysql injection (more detail about mysql injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
 
-$myusername = mysql_real_escape_string($myusername);
-$mypassword = mysql_real_escape_string($mypassword);
+$myusername = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $myusername);
+$mypassword = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $mypassword);
 
 
 $sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
-$result=mysql_query($sql);
+$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 // Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
+$count=mysqli_num_rows($result);
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1){
 // Register $myusername, $mypassword and redirect to file "admin.php"

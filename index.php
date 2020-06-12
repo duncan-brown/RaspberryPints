@@ -1,3 +1,4 @@
+
 <?php
 	if (!file_exists(__DIR__.'/includes/config.php')) {
 		header('Location: install/index.php', true, 303);
@@ -11,7 +12,7 @@
 
 	require_once __DIR__.'/admin/includes/managers/tap_manager.php';
 	
-	//This can be used to choose between CSV or MYSQL DB
+	//This can be used to choose between CSV or mysql DB
 	$db = true;
 	
 	// Setup array for all the beers that will be contained in the list
@@ -24,14 +25,14 @@
 		
 		$config = array();
 		$sql = "SELECT * FROM config";
-		$qry = mysql_query($sql);
-		while($c = mysql_fetch_array($qry)){
+		$qry = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($c = mysqli_fetch_array($qry)){
 			$config[$c['configName']] = $c['configValue'];
 		}
 		
 		$sql =  "SELECT * FROM vwGetActiveTaps";
-		$qry = mysql_query($sql);
-		while($b = mysql_fetch_array($qry))
+		$qry = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($b = mysqli_fetch_array($qry))
 		{
 			$beeritem = array(
 				"id" => $b['id'],
