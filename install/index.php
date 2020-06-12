@@ -49,6 +49,14 @@
 	<form action="includes/configprocessor.php" method="post">
 
 	<?php
+                if (!function_exists('mysqli_result')) {
+                        function mysqli_result($res, $row, $field=0) {
+                                $res->data_seek($row);
+                                $datarow = $res->fetch_array();
+                                return $datarow[$field];
+                        }
+                }
+        
 		$upgrade=0;
 		$clear=0;
 		if (file_exists("../includes/config.php")) {

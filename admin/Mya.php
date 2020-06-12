@@ -52,6 +52,14 @@ include 'header.php';
 $sql="SELECT `name` FROM `users` WHERE username='$_SESSION[myusername]'";
 $result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
+if (!function_exists('mysqli_result')) {
+  function mysqli_result($res, $row, $field=0) {
+    $res->data_seek($row);
+    $datarow = $res->fetch_array();
+    return $datarow[$field];
+  }
+}
+
 echo mysqli_result($result,  0,  'name');
 ?><br />
 <font size="2" Color="Black" font-family="Impact">Username:</font>
