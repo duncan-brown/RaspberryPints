@@ -40,7 +40,7 @@ JESSIE_FLOW_MEATERS_PACKAGES="arduino python-serial python-mysqldb php5-cli
 
 # the base github repo name
 DEFAULT_REPO=https://github.com/RaspberryPints/RaspberryPints.git  
-CUSTOM_REPO=https://github.com/rtlindne/RaspberryPints.git  
+CUSTOM_REPO=https://github.com/duncan-brown/RaspberryPints.git  
 FLOW_METERS_REPO=https://github.com/wyolum/alamode/raw/master/bundles/alamode-setup.tar.gz
 FLOW_METERS_STRETCH_REPO=https://github.com/wyolum/alamode/raw/master/alamode-setup/stretch-setup
 FLOW_METERS_BUSTER_REPO=https://github.com/wyolum/alamode/raw/master/alamode-setup/stretch-setup
@@ -86,8 +86,8 @@ init() {
     PACKAGE="RPints-Tools"
     THISSCRIPT="rpints_install.sh"
     VERSION="0.0.0.1"
-    #CMDLINE="curl -L https://raw.githubusercontent.com/rtlindne/RaspberryPints/master/util/installRaspberryPints | sudo bash"
-    CMDLINE="curl -L install.rpints.com | sudo bash"
+    CMDLINE="curl -L https://raw.githubusercontent.com/duncan-brown/RaspberryPints/master/util/installRaspberryPints | sudo bash"
+    #CMDLINE="curl -L install.rpints.com | sudo bash"
     SCRIPTNAME="${THISSCRIPT%%.*}"
 }
 
@@ -756,7 +756,7 @@ setupDatabase(){
 	read -e -p "Admin Last Name?: " RP_NAME_Last < /dev/tty
 	read -e -p "Admin Email?: " RP_EMAIL < /dev/tty
 	
-	if ! echo "$REPO" | grep -iq "rtlindne" ; then
+	if ! echo "$REPO" | grep -iq "duncan-brown" ; then
 		mysql ${MYSQL_CMD} -D ${MYSQL_DB_NAME} -e "INSERT INTO users 
 							 (username,password,name,email,createdDate,modifiedDate) 
 							 VALUES ('${RP_USERNAME}',MD5('${RP_PASS}'),CONCAT('${RP_NAME_FIRST}', ' ', '${RP_NAME_LAST}'),'${RP_EMAIL}',NOW(),NOW());";
