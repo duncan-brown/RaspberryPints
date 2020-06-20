@@ -22,7 +22,7 @@ table .ibu{
 }
 
 table .abv{
-	width: 350px;
+	width: 400px;
 }
 table .keg{
 	width: 250px;
@@ -62,7 +62,7 @@ span.tapcircle {
 	
 .abv-container{
 	height: 200px;
-	width: 230px;
+	width: 240px;
 }	
 .abv-indicator{
 	background-image: url(img/abv/stroke-4k.png);
