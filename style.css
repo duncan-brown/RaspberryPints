@@ -291,13 +291,13 @@ img {
 	position: relative;
 	height: 100px;
 	width: 125px;
-	margin: 8px auto;
+	margin: 4px auto;
 }	
 .abv-indicator{
 	display: inline-block;
 	position: relative;
 	height:100%;
-	width:45%;
+	width:47%;
 	background: url(img/abv/stroke.png) no-repeat bottom left;
 }
 .abv-indicator .abv-full{
@@ -424,7 +424,7 @@ font-size: 12px;
 
 
 table{
-	width: 100%;
+	width: 3825px;
 	border-collapse: collapse;
 }
 table th,
