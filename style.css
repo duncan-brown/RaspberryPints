@@ -89,7 +89,10 @@ html, body {
 	background-repeat:no-repeat;
 	overflow: hidden;
 	color: #FFFFFF;
-	font: 1em Georgia, arial, verdana, sans-serif;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 1em;
+	font-weight: 400;
 	margin:5px;
 	height:99%;
 }
@@ -105,12 +108,12 @@ hr {
 }
 h1 {
 	margin: 0;
-	font: Georgia;
+	font-family: 'Open Sans';
 	color: #FFFFFF;
 }
 h2, h3, p {
 	margin: 0;
-	font: Georgia;
+	font-family: 'Open Sans';
 	color: #A0A0A0;
 }
 img {
@@ -135,7 +138,10 @@ img {
 	width: 20%;
 	height: 100px;
 	display:table-cell;
-	font: .85em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.85em;
+	font-weight: 400;
 	color: white;
 	font-weight: bold;
 	text-align: left;
@@ -145,7 +151,10 @@ img {
 	height: 50px;
 	text-align: center;
 	display:table-cell;
-	font: 3em Georgia bold;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 3em;
+	font-weight: 600;
 	color: white;
 	vertical-align: middle;
 	padding-top:25px;
@@ -153,7 +162,10 @@ img {
 .HeaderRight {
 	width: 20%;
 	display:table-cell;
-	font: .85em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.85em;
+	font-weight: 600;
 	color: white;
 	font-weight: bold;
 	text-align: right;
@@ -344,7 +356,7 @@ img {
 .keg-indicator{
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: 55px;
 	height: 100%;
 	width: 100%;
 	background: url(img/keg/stroke.png) no-repeat bottom left;	
@@ -446,19 +458,27 @@ table thead{
 }
 table thead th{
 	min-height:35px;
-	font: .65em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.8em;
+	font-weight: 600;
 	color: white;
-	font-weight: bold;
 	vertical-align: top;
 }
 table h3 {
-	font: .8em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.8em;
+	font-weight: 600;
 	-webkit-margin-before: 5px;
 	-webkit-margin-after: 5px;
 	text-align: center;
 }
 table h2 {
-	font: 1em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.8em;
+	font-weight: 600;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 	text-align: center;
@@ -467,12 +487,17 @@ table h1{
 	color: white;
 	opacity:1;
 	display:block;
-	font: 1em Georgia;
-	font-weight: bold;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 3em;
+	font-weight: 600;
 }
 table .subhead{
 	width:100%;
-	font: .9em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 1.5em;
+	font-weight: 600;
 	text-align:left;
 }
 p.rating .num {
@@ -493,7 +518,10 @@ p.rating {
 }
 
 table p{
-	font: .8em Georgia;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 0.9em;
+	font-weight: 400;
 	color: #A0A0A0;
 	margin-top:20px; 
 }
