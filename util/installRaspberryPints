@@ -938,8 +938,9 @@ installFlowmeters(){
 			# ensure the files are executable by the owner  
 			find "${WWWPATH}" -type f -exec chmod o+x {} \;
 			
-			dos2unix ./*
-			./${VER_NAME}-setup
+			#dos2unix ./*
+			#./${VER_NAME}-setup
+			echo "Relying on user to configure AlaMode Board"
 			
 			popd
 		fi
