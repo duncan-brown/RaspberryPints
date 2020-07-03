@@ -1325,7 +1325,6 @@ main() {
 		    installRFID
 		    installMotionSensor
 			installTempProbes
-			configureMonitor
 			if [ $RPINTS_INSTALL_DETECTED -eq 0 ]; then
     			complete # Final user instructions
     		else
