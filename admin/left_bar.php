@@ -11,7 +11,7 @@
 
 <!-- End User Echo -->
 <div class="user">
-	<a href="../index.php"><img src="img/logo.png<?php echo "?" . time(); ?>" width="120" height="120" class="hoverimg" alt="Brewery Logo" /></a>
+	<a href="../index.php"><img src="img/logo.png<?php echo "?" . time(); ?>" width="135" height="101" class="hoverimg" alt="Brewery Logo" /></a>
 </div>
 
 <!-- Start Navagation -->
