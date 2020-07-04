@@ -5,3 +5,4 @@ includes/config.php
 /.pydevproject
 admin/img/logo.png
 python/*.pyc
+alamode/*
