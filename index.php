@@ -273,7 +273,7 @@
 				if($numberOfPours > 0) printPoursList($poursList);
 			?>
 		</div>
-		<div class="copyright">Data provided by <a href="http://untappd.com">Untappd</a></div>
+		<!-- <div class="copyright">Data provided by <a href="http://untappd.com">Untappd</a></div> -->
 		
 		<?php if($config[ConfigNames::DisplayRowsSameHeight]) { ?>
 		<script type="text/javascript">
