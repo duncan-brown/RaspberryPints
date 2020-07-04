@@ -4,3 +4,4 @@ includes/config.php
 /.project
 /.pydevproject
 admin/img/logo.png
+python/*.pyc
