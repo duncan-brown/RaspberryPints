@@ -178,9 +178,17 @@
 		<script type="text/javascript" src="admin/scripts/ws.js"></script>	
     <style>
         body { background-image: url('img/beer-mugs.jpg'); }
-        table { width  : 99%; }
+        table { width  : 96%; }
         table h1 { font-size: 6em; color: rgb(0,0,200); -webkit-text-stroke-width: 4px; -webkit-text-stroke-color: yellow; }
         table h3 { color: yellow; }
+        .keg-container { height: 341px; width: 225px; }
+        .keg-indicator { background-size: 225px 341px ; }
+        .keg-indicator .keg-full { background-size: 225px 341px ; }
+        .keg-indicator .keg-empty { background-size: 225px 341px ; }
+        .keg-indicator .keg-red { background-size: 225px 341px ; }
+        .keg-indicator .keg-orange { background-size: 225px 341px ; }
+        .keg-indicator .keg-yellow { background-size: 225px 341px ; }
+        .keg-indicator .keg-green { background-size: 225px 341px ; }
     </style>
 
 	</head> 

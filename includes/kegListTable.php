@@ -59,7 +59,7 @@ if($editting) $maxTapCol = 1;
 			if( isset($beers[$i]) ) $beer = $beers[$i];
 			if($tapOrBottle != ConfigNames::CONTAINER_TYPE_KEG  && !isset($beer) ) continue;
 		?>
-			<tr class="<?php if($i%2 > 0){ echo 'altrow'; }?>" id="<?php echo $beer['id']; ?>">
+			<tr id="<?php echo $beer['id']; ?>">
 				<?php 
 			    for($tapCol = 0; $tapCol< $maxTapCol && $numberOfBeers > $tapCol; $tapCol++){
         			$beer = null;
@@ -127,13 +127,7 @@ if($editting) $maxTapCol = 1;
 					         isset($beer['lastPour']) && $beer['lastPour'] != ''){ ?>
     					<h3><?php echo $beer['lastPour']?></h3>
     				<?php }?>
-					<?php if($config[ConfigNames::ShowPouredValue]){?>
-					<?php if($tapOrBottle == ConfigNames::CONTAINER_TYPE_KEG){ ?>
-						<h3><?php echo number_format($beer['startAmount'] - $beer['remainAmount'], 1); echo (is_unit_imperial($config[ConfigNames::DisplayUnitVolume])?"Gal":"L"); ?> poured</h3>
-					<?php } else { ?>
-						<h3><?php echo $beer['remainAmount'].' x '.number_format(convert_volume($beer['volume'], $beer['volumeUnit'], $config[ConfigNames::DisplayUnitVolume]), 1); echo $config[ConfigNames::DisplayUnitVolume];?></h3> 
-					<?php } ?>
-					<?php } ?>
+
 					<?php 
     					if($config[ConfigNames::ShowKegImg]){
     						$kegImgClass = "";
@@ -178,14 +172,7 @@ if($editting) $maxTapCol = 1;
     						<?php } ?>
     					</div>
     					<?php }?>
-						<?php if($tapOrBottle == ConfigNames::CONTAINER_TYPE_KEG){ ?>
-							<h3><?php echo number_format($beer['remainAmount'], 1); echo (is_unit_imperial($config[ConfigNames::DisplayUnitVolume])?"Gal":"L"); ?> left</h3>
-						<?php } ?>
-				<?php }elseif( isset($beer) && $beer['beername'] && 
-				               isset($beer['lastPour']) && $beer['lastPour'] != ''){ ?>
-					<?php if($config[ConfigNames::ShowPouredValue]){?>
-						<h3>Last pour:<br/><?php echo $beer['lastPour']?></h3>
-					<?php } ?>
+
 				<?php }?>
 				</td>
 			<?php } ?>
