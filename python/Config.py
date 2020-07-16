@@ -10,10 +10,10 @@ config['flowmon.port'] = '/dev/ttyS0'
 #config['flowmon.port'] = '/dev/rfcomm0'
 
 #logging settings for flowmon
-config['flowmon.debug' ] = False#True
+config['flowmon.debug' ] = False
 
 #logging settings for pintdispatch
-config['dispatch.debug' ] = False#True
+config['dispatch.debug' ] = False
 
 #logging settings for load cells
 config['loadcell.debug' ] = False#True
