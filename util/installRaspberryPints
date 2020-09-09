@@ -571,7 +571,7 @@ configureNginx(){
 	
 		#echo -e "PHP Socket $PHPSOCKET"
 		if [ $FERMTRACK_INSTALLED -ne 1 ] ;  then
-			cp "./nginx-confs/default" "/etc/nginx/sites-available/$NGIXConfigName" &>> "$HOMEPATH/$SCRIPTNAME.log"
+			cp "${WWWPATH}/nginx-confs/default" "/etc/nginx/sites-available/$NGIXConfigName" &>> "$HOMEPATH/$SCRIPTNAME.log"
 			FIND_STR="#PHPSOCKET#"
 			REPL_STR="$PHPSOCKET"
 			sed -i "s_${FIND_STR}_${REPL_STR}_" "/etc/nginx/sites-available/$NGIXConfigName"
@@ -598,7 +598,7 @@ configureNginx(){
 			#echo -e  "Updated $NGIXConfigName With location /$NGINX_SUB"
 		fi
 		#if the config doesnt already have php enabled
-		if ! grep -q "\s*location.*php" "$NGIXConfig"; then
+		if ! grep -q "^\s*location.*php" "$NGIXConfig"; then
 			#echo -e grep -q "\s*location.*php" "$NGIXConfig" result $?
 			#echo -e  "\nUpdated $NGIXConfigName With PHP- Start"
 			#remove the last } so we can add in our configuration
@@ -617,7 +617,7 @@ configureNginx(){
 		    echo "}" >> $NGIXConfig
 			#echo -e  "Updated $NGIXConfigName With PHP - Complete"
 		fi
-		if ! grep -q "\s*location.*\.ht" "$NGIXConfig"; then
+		if ! grep -q "^\s*location.*\.ht" "$NGIXConfig"; then
 			#echo -e grep -q "\s*location.*\.ht" "$NGIXConfig" result $?
 			#echo -e  "\nUpdated $NGIXConfigName With htaccess deny - start"
 			#remove the last } so we can add in our configuration
@@ -1322,6 +1322,7 @@ installTempProbes(){
 		if ! grep -q '^\s*dtoverlay=w1-gpio' $BOOT_CONFIG_FILE; then
 		  echo 'dtoverlay=w1-gpio' >> $BOOT_CONFIG_FILE
 		fi
+		mysql ${MYSQL_CMD} -D ${MYSQL_DB_NAME} -e "UPDATE config SET configValue='1' WHERE configName='useTempProbes';";
 	else
 		echo "Will Not Setup Temp Probes"
 		echo
@@ -1333,9 +1334,10 @@ configureMonitor(){
 	MONITOR_OPTIONS=(1 "No Monitor"
 			 2 "1920 x 1080 | 1080p"
 	         3 "1280 x 720  | 720p"
-	         4 "1600 x 1200"
-	         5 "1680 x 1050"
-	         6 "1920 x 1200")
+	         4 "1280 x 1024"
+	         5 "1600 x 1200"
+	         6 "1680 x 1050"
+	         7 "1920 x 1200")
 	HDMI_GROUP=1
 	HDMI_MODE=16
 	MONITOR_RESOLUTION=$(dialog --clear \
@@ -1356,14 +1358,18 @@ configureMonitor(){
 				HDMI_MODE=4
 				;;
 			4)
+				HDMI_GROUP=2
+				HDMI_MODE=35
+				;;
+			5)
 				HDMI_GROUP=1
 				HDMI_MODE=2
 				;;
-			5)
+			6)
 				HDMI_GROUP=2
 				HDMI_MODE=51
 				;;
-			6)
+			7)
 				HDMI_GROUP=2
 				HDMI_MODE=68
 				;;
@@ -1573,15 +1579,15 @@ updateRpints(){
         3 )  ;; #Not sure how to update this one since its static		
 	esac
 	case ${REPO_CHOICE} in
-        1 ) git stash; git pull; mysql ${MYSQL_CMD} -D ${MYSQL_DB_NAME} -s -L < ${WWWPATH}/sql/update.sql > /dev/null 2>&1; if  [ -z "$WWWPATH_SET" ]; then git difftool --dir-diff -y stash; fi; ;;
-        2 ) git stash; git pull; if  [ -z "$WWWPATH_SET" ]; then git difftool --dir-diff -y stash; fi; ;;
+        1 ) git stash; git pull; mysql ${MYSQL_CMD} -D ${MYSQL_DB_NAME} -s -L < ${WWWPATH}/sql/update.sql > /dev/null 2>&1; cp -f /tmp/RPints_Config.py  ./python/Config.py; if  [ -z "$WWWPATH_SET" ]; then git difftool --dir-diff -y stash; fi; ;;
+        2 ) git stash; git pull; cp -f /tmp/RPints_Config.py  ./python/Config.py; if  [ -z "$WWWPATH_SET" ]; then git difftool --dir-diff -y stash; fi; ;;
         3 )  ;; #Not sure how to update this one since its static		
 	esac
 	#bring over any images that were undone but do not overwrite except background and logo
 	cp -R -n /tmp/rpints_img/* ./img/ 
 	cp -f /tmp/rpints_img/background.jpg ./img/background.jpg 
 	cp -f /tmp/rpints_img/logo.png ./img/logo.png 
-	cp -f /tmp/RPints_Config.py  ./python/Config.py 
+	#cp -f /tmp/RPints_Config.py  ./python/Config.py 
 	echo -e "Images updated, old images can be found in /tmp/rpints_img"
 	popd >/dev/null
 	doperms
