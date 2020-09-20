@@ -369,8 +369,8 @@ if($editting) $maxTapCol = 1;
     							<div class="keg-indicator" style="background: url(img/keg/kegSvg.php?container=<?php echo $kegType?>&empty) no-repeat bottom left;"> 
 								<div class="keg-full" style="height:100%; width: 100%; background: url(img/keg/kegSvg.php?container=<?php echo $kegType?>&fill=<?php echo $percentRemaining; ?>&rgb=<?php echo $kegImgColor ?>) no-repeat bottom left;" >
     								       <div class="<?php echo $kegOn ?>"></div>
-    								       <?php if($percentRemaining>=100){?><div style="height:100%;"><h1 style="height:100%;text-align: center;padding-top: 50%; color:white;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">FULL</h1></div><?php }?>
-    									   <?php if($percentRemaining<=0){?><div style="height:100%;"><h1 style="height:100%;text-align: center;padding-top: 50%; color:White;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">MT</h1></div><?php }?>
+    								       <?php if($percentRemaining>=100){?><div style="height:100%;"><h3 style="height:100%;text-align: left;padding-top: 25%; padding-left:10%; color:white;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">FULL</h3></div><?php }?>
+    									   <?php if($percentRemaining<=0){?><div style="height:100%;"><h3 style="height:100%;text-align: left;padding-top: 25%; padding-left:20%; color:White;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">MT</h3></div><?php }?>
     								</div>
     							</div>
     						<?php } else { ?>
