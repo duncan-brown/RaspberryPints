@@ -179,7 +179,7 @@
     <style>
         body { background-image: url('img/beer-mugs.jpg'); }
         table { width  : 96%; }
-        table h1 { font-size: 6em; color: rgb(0,0,200); -webkit-text-stroke-width: 4px; -webkit-text-stroke-color: yellow; }
+        table h1 { font-size: 5em; color: rgb(0,0,200); -webkit-text-stroke-width: 4px; -webkit-text-stroke-color: yellow; }
         table h3 { color: yellow; }
         .keg-container { height: 341px; width: 225px; }
         .keg-indicator { background-size: 225px 341px ; }

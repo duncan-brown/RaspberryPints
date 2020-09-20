@@ -129,7 +129,6 @@ if($editting) $maxTapCol = 1;
     				<?php }?>
 					<?php if($config[ConfigNames::ShowPouredValue]){?>
 					<?php if($tapOrBottle == ConfigNames::CONTAINER_TYPE_KEG){ ?>
-						<h3><?php echo number_format($beer['startAmount'] - $beer['remainAmount'], 1); echo (is_unit_imperial($config[ConfigNames::DisplayUnitVolume])?"Gal":"L"); ?> poured</h3>
 					<?php } else { ?>
 						<h3><?php echo $beer['remainAmount'].' x '.number_format(convert_volume($beer['volume'], $beer['volumeUnit'], $config[ConfigNames::DisplayUnitVolume]), 1); echo $config[ConfigNames::DisplayUnitVolume];?></h3> 
 					<?php } ?>
@@ -170,8 +169,6 @@ if($editting) $maxTapCol = 1;
     							<div class="keg-indicator" style="background: url(img/keg/kegSvg.php?container=<?php echo $kegType?>&empty) no-repeat bottom left;"> 
 								<div class="keg-full" style="height:100%; width: 100%; background: url(img/keg/kegSvg.php?container=<?php echo $kegType?>&fill=<?php echo $percentRemaining; ?>&rgb=<?php echo $kegImgColor ?>) no-repeat bottom left;" >
     								       <div class="<?php echo $kegOn ?>"></div>
-    								       <?php if($percentRemaining>=100){?><div style="height:100%;"><h3 style="height:100%;text-align: left;padding-top: 25%; padding-left:10%; color:white;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">FULL</h3></div><?php }?>
-    									   <?php if($percentRemaining<=0){?><div style="height:100%;"><h3 style="height:100%;text-align: left;padding-top: 25%; padding-left:20%; color:White;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">MT</h3></div><?php }?>
     								</div>
     							</div>
     						<?php } else { ?>
@@ -182,18 +179,6 @@ if($editting) $maxTapCol = 1;
     						<?php } ?>
     					</div>
     					<?php }?>
-						<?php if($tapOrBottle == ConfigNames::CONTAINER_TYPE_KEG){ ?>							
-							<h3>
-							<?php 
-							 if( !isset($config[ConfigNames::AmountPerPint]) || $config[ConfigNames::AmountPerPint] == 0) {
-							     echo number_format($beer['remainAmount'], 1); echo (is_unit_imperial($config[ConfigNames::DisplayUnitVolume])?"Gal":"L");
-							 }else{
-							     $beer['remainAmount'] = convert_volume($beer['remainAmount'], $beer['remainAmountUnit'], $config[ConfigNames::DisplayUnitVolume], FALSE, TRUE);
-							     echo number_format($beer['remainAmount']/$config[ConfigNames::AmountPerPint], 1); echo "Pints";
-							 }
-							?> 
-							left</h3>
-						<?php } ?>
 				<?php }elseif( isset($beer) && $beer['beername'] && 
 				               isset($beer['lastPour']) && $beer['lastPour'] != ''){ ?>
 					<?php if($config[ConfigNames::ShowPouredValue]){?>
